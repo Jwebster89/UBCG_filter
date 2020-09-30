@@ -2,7 +2,7 @@
 
 UBCG_filter.py is for filtering the results of a UBCG output and producing alignments of any reference isolates that contain all UBCGs as well as keeping particular isolates, supplied in a list, that meet the threshold (for example, keeping isolates that were sequenced in the study).
 
-In the following example, with a threshold=5, Isolate 2, Reference 2 and Reference 3 would be removed (&#x26A0;) from the analysis if a list containing Isolate 1 and Isolate 2 is supplied to -s, because they are missing (&#x274C;) too many genes. Filtered alignments are produced for all genes but Gene 1.
+In the following example, with a threshold=5, Isolate 2, Reference 2 and Reference 3 would be removed (&#x26A0;) from the analysis if a list containing Isolate 1 and Isolate 2 is supplied to -s. These isolates are removed because they are missing (&#x274C;) too many genes (references are expected to contain all UBCG and sequenced isolates must pass a threshold). In this example, filtered alignments are produced for all genes but Gene 1.
 
 |   |  Gene 1 &#x26A0;|  <span style="font-weight:normal">Gene 2</span>  |  Gene 3  | Gene 4   |  Gene 5  | Gene 6 |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|
