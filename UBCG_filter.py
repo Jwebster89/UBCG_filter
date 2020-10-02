@@ -101,7 +101,7 @@ def UBCG_filter(seq_list, outseq_list):
 				if seq_record.id == isolate: #if the isolate in the alignment is in the outseq list, add to a new file
 					match_fasta.append(seq_record)
 		if len(match_fasta) == len(outseq_list): #only write that file if it contains all isolates (removes the UBCGs that sequenced isolates were missing).
-			SeqIO.write(match_fasta, os.path.join(path,"filtered_" + fasta), 'fasta') #""" Come back and change output of these fasta"""
+			SeqIO.write(match_fasta, os.path.join(path,"filtered_" + fasta), 'fasta') 
 		else:
 			print(fasta + " excluded from output")
 	print("\nDone!")
