@@ -70,8 +70,11 @@ def print_dict(dict, isolate_list):
 		elif key in lines and dict[key] < threshold: # if the count of UBCGs is less than threshold (default 85) in a set of sequenced isolates (not references), exclude from analysis.
 			print("Error: "+ key + " has been excluded from output as it only has " + str(dict[key]) + " UBCGs")
 			unused_list.append(key)
-		else:
+		elif key not in lines and dict[key] < threshold:
+			print("Error: Reference isolate " + key + " has been excluded from output as it only has " + str(dict[key]) + " UBCGs")
 			unused_list.append(key)
+		else:
+			continue
 
 #Creates a counter of how many isolates have how many UBCGs. Useful for understanding distribution of UBCGS.
 	unique_values=set(dict.values())
