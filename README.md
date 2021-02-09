@@ -22,7 +22,13 @@ sed -i "s/.fasta//g" isolate.list
 sed -i "s/^/'/g" isolate.list
 sed -i "s/$/'/g" isolate.list
 ```
+### But why does UBCG_filter remove any reference that doesn't have a *complete* UBCG profile?
+
+In my testing, with large datasets, if references genomes are kept above the threshold set (default 85) but below a complete repertoire of UBCGs, UBCG will filter out too many gene alignments. This will be less of a problem with smaller, more complete datasets. If UBCG_filter is removing references you would like to keep, these references can be added to the isolate.list file to ensure they are retained for your analysis.
 
 ### Usage
 ` ./UBCG_filter.py -p <UBCG output path> -i <isolate list> [-t threshold]`
+
+### Recommendations
+UBCG filter is great for running all your isolates and references as a general first pass and inspecting the "unused.txt" file to see which genomes won't be retained in the final filtering (rather than waiting for this first pass of filtering to complete, you can ctrl+c UBCG_fitler after it says "List of unused samples saved to 'unused.txt'"). From here, you may add references to your isolate.list to retain important references, change your threshold setting to keep important samples and use the unused.txt to remove references/samples from your bcg folder. Once these references have been removed, you are free to rerun UBCG align followed by UBCG_filter to produce filtered alignments of only genes that contain all genomes. These can then for example be recombination filtered with [ClonalFrame](https://github.com/xavierdidelot/ClonalFrameML) and ML phylogenies produced with RAxML.
 
