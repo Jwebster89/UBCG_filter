@@ -4,7 +4,7 @@ import sys,os
 from random import seed
 from random import randint
 
-bcg_path="/home/webstejo/bin/UBCG/bcg/"
+bcg_path="/path_to_bcgs/"
 
 def parser(dir):
 	bcg_ids=[]
